@@ -15,7 +15,7 @@ let image = "";
 let user_id = "";
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended:true}));
-app.use(express.static(path.join(__dirname, "client", "build")));
+app.use(express.static(path.join(__dirname, "/client/build")));
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 app.use(cookieParser());
 app.use(session({
