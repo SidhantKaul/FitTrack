@@ -57,7 +57,7 @@ passport.deserializeUser(function(id, done) {
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "http://localhost:9000/auth/google/fitness",
+    callbackURL: "https://boiling-caverns-16015.herokuapp.com/fitness",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
@@ -219,7 +219,7 @@ app.get("/auth/google/fitness",
      image = await req.user.img;
      user_id = await req.user.googleId;
     console.log(user_id+"<<<>>>>>>"+req.user.googleId);
-    res.redirect("http://localhost:3000");
+    res.redirect("/");
   });
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
