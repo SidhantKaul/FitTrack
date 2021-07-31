@@ -10,7 +10,7 @@ const passport = require("passport");
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate = require("mongoose-findorcreate");
 const path = require("path");
-
+let port = process.env.PORT;
 let image = "";
 let user_id = "";
 app.use(bodyParser.json());
@@ -224,7 +224,7 @@ app.get("/auth/google/fitness",
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
-let port = process.env.PORT;
+
 if (port == null || port == "") {
   port = 9000;
 }

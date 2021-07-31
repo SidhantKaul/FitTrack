@@ -16,7 +16,7 @@ function Login() {
           Login
         </h1>
         <div className="social-btn">
-          <a href="http://localhost:9000/auth/google" className="btn btn-block btn-social btn-google shadow-none"><span class="fab fa-google"></span> Sign in with Google</a>
+          <a href="/auth/google" className="btn btn-block btn-social btn-google shadow-none"><span class="fab fa-google"></span> Sign in with Google</a>
         </div>
       </div>
     </div>
