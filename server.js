@@ -25,7 +25,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-mongoose.connect("mongodb+srv://user_me:12345mnop@cluster0.dvtrj.mongodb.net/FitnessUsers?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true,useCreateIndex:true});
+mongoose.connect("mongodb+srv://user_me:"+process.env.PAWD+"@cluster0.dvtrj.mongodb.net/FitnessUsers?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true,useCreateIndex:true});
 const {Schema} = mongoose;
 const exerciseSchema = new Schema({
   time: String,
@@ -57,7 +57,7 @@ passport.deserializeUser(function(id, done) {
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "https://boiling-caverns-16015.herokuapp.com/auth/google/fitness",
+    callbackURL: "https://fittracks.onrender.comauth/google/fitness",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
